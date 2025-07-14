@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://cy8pad2vahncy"]
+
+[ext_resource type="Script" uid="uid://dss074ebhjnva" path="res://main.gd" id="1_h2yge"]
+[ext_resource type="Script" uid="uid://d2ohakqgr26xu" path="res://enemies.gd" id="2_1bvp3"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h2yge")
+
+[node name="VSplitContainer" type="VSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top Bar" type="MarginContainer" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VSplitContainer/Top Bar"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 64
+text = "Round 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Main Info" type="HBoxContainer" parent="VSplitContainer"]
+layout_mode = 2
+
+[node name="Enemies" type="VSplitContainer" parent="VSplitContainer/Main Info"]
+custom_minimum_size = Vector2(640, 0)
+layout_mode = 2
+script = ExtResource("2_1bvp3")
+
+[node name="Title" type="Label" parent="VSplitContainer/Main Info/Enemies"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "Enemies"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VSplitContainer/Main Info/Enemies"]
+layout_mode = 2
+vertical_scroll_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VSplitContainer/Main Info/Enemies/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Upper Enemy List" type="VBoxContainer" parent="VSplitContainer/Main Info/Enemies/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="Lower Enemy List" type="VBoxContainer" parent="VSplitContainer/Main Info/Enemies/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 2

@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca6ht6wcvlprg"]
+
+[ext_resource type="Script" uid="uid://bol4gdbnww063" path="res://enemy.gd" id="1_7k104"]
+
+[node name="Enemy" type="PanelContainer"]
+script = ExtResource("1_7k104")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="Name Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Mart"
+
+[node name="Count Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_font_sizes/font_size = 32
+text = "1/1"
+horizontal_alignment = 2
+
+[connection signal="mouse_entered" from="." to="." method="select"]
+[connection signal="mouse_exited" from="." to="." method="unselect"]
