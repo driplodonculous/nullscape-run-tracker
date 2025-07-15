@@ -10,7 +10,7 @@ var enemies_list = [
 	{"label": "Bell", "max": 1, "lvl": 1},
 	{"label": "Mart", "max": 1, "lvl": 1},
 	{"label": "Skinwalker", "max": 3, "lvl": 1},
-	{"label": "Baby", "max": 2, "lvl": 1},
+	{"label": "Baby", "max": 2, "lvl": 1, "last": 10},
 	{"label": "ICBM", "max": 2, "lvl": 1},
 	{"label": "Flesh", "max": 2, "lvl": 5},
 	{"label": "Nil", "max": 1, "lvl": 5},
@@ -18,7 +18,7 @@ var enemies_list = [
 	{"label": "Telefragger", "max": 1, "lvl": 8},
 	{"label": "Voidbreaker", "max": 1, "lvl": 10},
 	{"label": "Ponderer", "max": 1, "lvl": 15},
-	{"label": "Guardian", "max": 2, "lvl": 5},
+	{"label": "Guardian", "max": 2, "lvl": 5, "last": 20},
 	{"label": "Shadow Guardian", "max": 1, "lvl": 20},
 	{"label": "Random", "lvl": 8},
 ]
@@ -29,6 +29,8 @@ func _ready() -> void:
 		scene.label = enemy["label"]
 		if enemy.has("max"):
 			scene.max_count = enemy["max"]
+		if enemy.has("last"):
+			scene.last = enemy["last"]
 		scene.lvl = enemy["lvl"]
 		scene.enemies = self
 		add_child(scene)

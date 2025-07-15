@@ -7,15 +7,15 @@ extends VSplitContainer
 @onready var chosen_list: VBoxContainer = $ScrollContainer/VBoxContainer/Chosen
 
 var curse_file = preload("res://scenes/curse.tscn")
-
+var chosen_curses = []
 var curses_list = [
 	{"label": "Random Spawn", "lvl": 1},
 	{"label": "Lower Gravity", "lvl": 1},
 	{"label": "Worse Tiles", "lvl": 1},
 	{"label": "Savory Ring", "lvl": 1},
 	{"label": "Ice Tiles", "lvl": 1},
-	{"label": "LAP 2", "lvl": 1},
-	{"label": "Fragile Gifts", "lvl": 5},
+	{"label": "LAP 2", "lvl": 1, "cant": "Fragile Gifts"},
+	{"label": "Fragile Gifts", "lvl": 5, "cant": "LAP 2"},
 	{"label": "Bigger Tripmines", "lvl": 5},
 	{"label": "More Tripmines", "lvl": 5},
 	{"label": "Nearsightedness", "lvl": 5},
@@ -46,6 +46,8 @@ func _ready() -> void:
 		scene.lvl = curse["lvl"]
 		if curse.has("enemy"):
 			scene.enemy = curse["enemy"]
+		if curse.has("cant"):
+			scene.cant = curse["cant"]
 		scene.curses = self
 		scene.enemies = enemies
 		add_child(scene)

@@ -11,6 +11,7 @@ var label
 var count = 0
 var max_count
 var lvl
+var last
 
 var selected = false
 
@@ -24,16 +25,16 @@ func update():
 		if not enemies.chosen_enemies.has(label):
 			enemies.chosen_enemies.append(label)
 	if max_count:
-		count_label.text = str(count) + "/" + str(max_count)
+		count_label.text = str(count) + "/" + str(max_count * (2 if main.hard else 1))
 	else:
 		count_label.text = str(count)
-	if max_count and count >= max_count:
+	if max_count and count >= max_count * (2 if main.hard else 1):
 		modulate.a = 0.5
 		if not get_parent() == enemies.max_list:
 				reparent(enemies.max_list)
 	else:
 		modulate.a = 1
-		if main.level < lvl:
+		if main.level < lvl or (last and main.level > last):
 			margin_container.modulate = Color(Color.INDIAN_RED)
 			if not get_parent() == enemies.unavailable_list:
 				reparent(enemies.unavailable_list)
@@ -46,6 +47,9 @@ func update():
 
 func _ready() -> void:
 	name_label.text = label
+	tooltip_text = "Minimum Level: " + str(lvl)
+	if last:
+		tooltip_text += "\nMaximum Level: " + str(last)
 	main.update.connect(update)
 	call_deferred("update")
 
