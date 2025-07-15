@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://3j5ccd21wecm"]
+
+[ext_resource type="Script" uid="uid://b38borp6yxleh" path="res://scripts/curse.gd" id="1_s4ju2"]
+
+[node name="Curse" type="PanelContainer"]
+script = ExtResource("1_s4ju2")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 2
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 2
+
+[node name="Name Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Mart"
+
+[connection signal="mouse_entered" from="." to="." method="select"]
+[connection signal="mouse_exited" from="." to="." method="unselect"]

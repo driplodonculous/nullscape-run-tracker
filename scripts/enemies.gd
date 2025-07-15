@@ -1,10 +1,11 @@
 extends VSplitContainer
 
-@onready var upper_list: VBoxContainer = $"ScrollContainer/VBoxContainer/Upper Enemy List"
-@onready var lower_list: VBoxContainer = $"ScrollContainer/VBoxContainer/Lower Enemy List"
+@onready var available_list: VBoxContainer = $"ScrollContainer/VBoxContainer/Available"
+@onready var unavailable_list: VBoxContainer = $"ScrollContainer/VBoxContainer/Unavailable"
+@onready var max_list: VBoxContainer = $ScrollContainer/VBoxContainer/Max
 
-var enemy_file = preload("res://enemy.tscn")
-
+var enemy_file = preload("res://scenes/enemy.tscn")
+var chosen_enemies = []
 var enemies_list = [
 	{"label": "Bell", "max": 1, "lvl": 1},
 	{"label": "Mart", "max": 1, "lvl": 1},
@@ -19,14 +20,15 @@ var enemies_list = [
 	{"label": "Ponderer", "max": 1, "lvl": 15},
 	{"label": "Guardian", "max": 2, "lvl": 5},
 	{"label": "Shadow Guardian", "max": 1, "lvl": 20},
-	{"label": "Random", "max": 1, "lvl": 8},
+	{"label": "Random", "lvl": 8},
 ]
 
 func _ready() -> void:
 	for enemy in enemies_list:
 		var scene = enemy_file.instantiate()
 		scene.label = enemy["label"]
-		scene.max = enemy["max"]
-		scene.upper_list = upper_list
-		scene.lower_list = lower_list
-		upper_list.add_child(scene)
+		if enemy.has("max"):
+			scene.max_count = enemy["max"]
+		scene.lvl = enemy["lvl"]
+		scene.enemies = self
+		add_child(scene)
