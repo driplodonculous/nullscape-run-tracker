@@ -13,6 +13,7 @@ config_version=5
 config/name="nullscape run tracker"
 run/main_scene="uid://cy8pad2vahncy"
 config/features=PackedStringArray("4.4", "GL Compatibility")
+run/low_processor_mode=true
 config/icon="res://icon.svg"
 
 [display]
