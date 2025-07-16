@@ -18,6 +18,7 @@ var curses_list = [
 	{"label": "Fragile Gifts", "lvl": 5, "cant": "LAP 2"},
 	{"label": "Bigger Tripmines", "lvl": 5},
 	{"label": "More Tripmines", "lvl": 5},
+	{"label": "More Tripmines 2", "lvl": 5, "req": "More Tripmines"},
 	{"label": "Nearsightedness", "lvl": 5},
 	{"label": "Fake Count", "lvl": 8},
 	{"label": "Nothing?", "lvl": 5},
@@ -48,6 +49,8 @@ func _ready() -> void:
 			scene.enemy = curse["enemy"]
 		if curse.has("cant"):
 			scene.cant = curse["cant"]
+		if curse.has("req"):
+			scene.req = curse["req"]
 		scene.curses = self
 		scene.enemies = enemies
 		add_child(scene)
