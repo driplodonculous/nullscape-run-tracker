@@ -36,7 +36,7 @@ var curses_list = [
 	{"label": "Muted", "lvl": 8, "enemy": "Telefragger"},
 	{"label": "Telestabber", "lvl": 13, "enemy": "Telefragger"},
 	{"label": "Pacifier", "lvl": 1, "enemy": "Baby"},
-	{"label": "Trap Card", "lvl": 12, "enemy": "ICBM"},
+	{"label": "Trap Card", "lvl": 12},
 	{"label": "Weaker Jumppads", "lvl": 1},
 ]
 

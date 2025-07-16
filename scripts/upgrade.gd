@@ -12,6 +12,7 @@ var count = 0
 var max_count = 1
 var lvl
 var req
+var solo = false
 
 var selected = false
 
@@ -34,7 +35,7 @@ func update():
 				reparent(upgrades.max_list)
 	else:
 		modulate.a = 1
-		if main.level < lvl or (req and not upgrades.chosen_upgrades.has(req)):
+		if main.level < lvl or (req and not upgrades.chosen_upgrades.has(req)) or (solo and not main.solo):
 			margin_container.modulate = Color(Color.INDIAN_RED)
 			if not get_parent() == upgrades.unavailable_list:
 				reparent(upgrades.unavailable_list)
@@ -50,6 +51,8 @@ func _ready() -> void:
 	tooltip_text = "Minimum Level: " + str(lvl)
 	if req:
 		tooltip_text += "\nRequired Upgrade: " + str(req)
+	if solo:
+		tooltip_text += "\nSolo Exclusive"
 	main.update.connect(update)
 	call_deferred("update")
 

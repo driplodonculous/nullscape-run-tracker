@@ -7,15 +7,15 @@ var selected = false
 func _input(event: InputEvent) -> void:
 	if selected and event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-			main.level += 1
-			text = "Level " + str(main.level)
-			main.update.emit()
+			toggle()
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
-			main.level -= 1
-			if main.level < 1:
-				main.level = 1
-			text = "Level " + str(main.level)
-			main.update.emit()
+			toggle()
+
+
+func toggle():
+	main.solo = not main.solo
+	text = "Solo" if main.solo else "Multiplayer"
+	main.update.emit()
 
 
 func select():

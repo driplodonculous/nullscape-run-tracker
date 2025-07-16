@@ -28,7 +28,7 @@ var upgrades_list = [
 	{"label": "Pocket Bell", "lvl": 8, "req": "Double Jump"},
 	{"label": "Sport Shoes", "lvl": 15},
 	{"label": "Gift Magnet", "max": 3, "lvl": 15},
-	{"label": "Adrenaline", "lvl": 3},
+	{"label": "Adrenaline", "lvl": 3, "solo": true},
 	{"label": "Subspacial Barrier", "lvl": 12},
 	{"label": "Grapple Points", "lvl": 10},
 ]
@@ -42,5 +42,7 @@ func _ready() -> void:
 			scene.max_count = upgrade["max"]
 		if upgrade.has("req"):
 			scene.req = upgrade["req"]
+		if upgrade.has("solo"):
+			scene.solo = upgrade["solo"]
 		scene.upgrades = self
 		add_child(scene)

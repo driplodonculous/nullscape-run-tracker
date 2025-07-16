@@ -1,12 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://cy8pad2vahncy"]
+[gd_scene load_steps=8 format=3 uid="uid://cy8pad2vahncy"]
 
 [ext_resource type="Script" uid="uid://dss074ebhjnva" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="Script" uid="uid://0gp1hso6nfg7" path="res://scripts/level.gd" id="2_jyhfs"]
 [ext_resource type="Script" uid="uid://d2ohakqgr26xu" path="res://scripts/enemies.gd" id="2_sugp2"]
+[ext_resource type="Script" uid="uid://cwyl3wvkh1rg8" path="res://scripts/difficulty.gd" id="2_tefeu"]
 [ext_resource type="Script" uid="uid://dmhhhqqgh4a5f" path="res://scripts/curses.gd" id="4_jyhfs"]
+[ext_resource type="Script" uid="uid://cant3vjhvj2t4" path="res://scripts/players.gd" id="4_o6xl0"]
 [ext_resource type="Script" uid="uid://da1deg2qvgl2l" path="res://scripts/upgrades.gd" id="5_tbgi4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tbgi4"]
 
 [node name="Main" type="Control"]
 layout_mode = 3
@@ -39,11 +39,26 @@ collapsed = true
 
 [node name="Top Bar" type="MarginContainer" parent="VSplitContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_right = 300
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VSplitContainer/Top Bar"]
+layout_mode = 2
 mouse_filter = 2
 
-[node name="Level Label" type="Label" parent="VSplitContainer/Top Bar"]
+[node name="Difficulty" type="Label" parent="VSplitContainer/Top Bar/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 6
+mouse_filter = 0
+theme_override_font_sizes/font_size = 64
+text = "Normal"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("2_tefeu")
+
+[node name="Level" type="Label" parent="VSplitContainer/Top Bar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
 mouse_filter = 0
 theme_override_font_sizes/font_size = 64
 text = "Level 1"
@@ -51,20 +66,24 @@ horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("2_jyhfs")
 
-[node name="Hard Mode" type="CheckButton" parent="VSplitContainer/Top Bar"]
+[node name="Players" type="Label" parent="VSplitContainer/Top Bar/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-theme_override_font_sizes/font_size = 32
-theme_override_styles/focus = SubResource("StyleBoxEmpty_tbgi4")
-text = " Hard Mode"
+size_flags_horizontal = 6
+mouse_filter = 0
+theme_override_font_sizes/font_size = 64
+text = "Multiplayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_o6xl0")
 
 [node name="Main Info" type="HBoxContainer" parent="VSplitContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="Enemies" type="VSplitContainer" parent="VSplitContainer/Main Info"]
-custom_minimum_size = Vector2(637, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
 collapsed = true
 script = ExtResource("2_sugp2")
@@ -107,8 +126,8 @@ size_flags_vertical = 0
 mouse_filter = 2
 
 [node name="Curses" type="VSplitContainer" parent="VSplitContainer/Main Info"]
-custom_minimum_size = Vector2(637, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
 collapsed = true
 script = ExtResource("4_jyhfs")
@@ -152,8 +171,8 @@ size_flags_vertical = 0
 mouse_filter = 2
 
 [node name="Upgrades" type="VSplitContainer" parent="VSplitContainer/Main Info"]
-custom_minimum_size = Vector2(638, 0)
 layout_mode = 2
+size_flags_horizontal = 3
 mouse_filter = 2
 collapsed = true
 script = ExtResource("5_tbgi4")
@@ -196,6 +215,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 0
 mouse_filter = 2
 
-[connection signal="mouse_entered" from="VSplitContainer/Top Bar/Level Label" to="VSplitContainer/Top Bar/Level Label" method="select"]
-[connection signal="mouse_exited" from="VSplitContainer/Top Bar/Level Label" to="VSplitContainer/Top Bar/Level Label" method="unselect"]
-[connection signal="toggled" from="VSplitContainer/Top Bar/Hard Mode" to="." method="_on_hard_mode_toggled"]
+[connection signal="mouse_entered" from="VSplitContainer/Top Bar/HBoxContainer/Difficulty" to="VSplitContainer/Top Bar/HBoxContainer/Difficulty" method="select"]
+[connection signal="mouse_exited" from="VSplitContainer/Top Bar/HBoxContainer/Difficulty" to="VSplitContainer/Top Bar/HBoxContainer/Difficulty" method="unselect"]
+[connection signal="mouse_entered" from="VSplitContainer/Top Bar/HBoxContainer/Level" to="VSplitContainer/Top Bar/HBoxContainer/Level" method="select"]
+[connection signal="mouse_exited" from="VSplitContainer/Top Bar/HBoxContainer/Level" to="VSplitContainer/Top Bar/HBoxContainer/Level" method="unselect"]
+[connection signal="mouse_entered" from="VSplitContainer/Top Bar/HBoxContainer/Players" to="VSplitContainer/Top Bar/HBoxContainer/Players" method="select"]
+[connection signal="mouse_exited" from="VSplitContainer/Top Bar/HBoxContainer/Players" to="VSplitContainer/Top Bar/HBoxContainer/Players" method="unselect"]
