@@ -27,7 +27,7 @@ var upgrades_list = [
 	{"label": "Real Wings", "lvl": 20},
 	{"label": "Pocket Bell", "lvl": 8, "req": "Double Jump"},
 	{"label": "Sport Shoes", "lvl": 15},
-	{"label": "Gift Magnet", "lvl": 15},
+	{"label": "Gift Magnet", "max": 3, "lvl": 15},
 	{"label": "Adrenaline", "lvl": 3},
 	{"label": "Subspacial Barrier", "lvl": 12},
 	{"label": "Grapple Points", "lvl": 10},

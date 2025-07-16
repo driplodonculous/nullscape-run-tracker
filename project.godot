@@ -10,12 +10,12 @@ config_version=5
 
 [application]
 
-config/name="nullscape run tracker"
+config/name="Nullscape Run Tracker"
 run/main_scene="uid://cy8pad2vahncy"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 run/low_processor_mode=true
 boot_splash/show_image=false
-config/icon="res://icon.svg"
+config/icon="uid://cyyaiee8r6ni7"
 
 [display]
 
