@@ -33,7 +33,7 @@ var curses_list = [
 	{"label": "Bloodier Meat", "lvl": 5, "enemy": "Flesh"},
 	{"label": "Mass Infection", "lvl": 5, "enemy": "Flesh"},
 	{"label": "Muted", "lvl": 8, "enemy": "Telefragger"},
-	{"label": "Telestabber", "lvl": 15, "enemy": "Telefragger"},
+	{"label": "Telestabber", "lvl": 13, "enemy": "Telefragger"},
 	{"label": "Pacifier", "lvl": 1, "enemy": "Baby"},
 	{"label": "Trap Card", "lvl": 12, "enemy": "ICBM"},
 	{"label": "Weaker Jumppads", "lvl": 1},
