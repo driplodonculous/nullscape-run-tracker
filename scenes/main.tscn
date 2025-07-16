@@ -18,6 +18,15 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_0wfyh")
 
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
 [node name="VSplitContainer" type="VSplitContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
@@ -54,7 +63,7 @@ layout_mode = 2
 mouse_filter = 2
 
 [node name="Enemies" type="VSplitContainer" parent="VSplitContainer/Main Info"]
-custom_minimum_size = Vector2(640, 0)
+custom_minimum_size = Vector2(637, 0)
 layout_mode = 2
 mouse_filter = 2
 collapsed = true
@@ -62,6 +71,7 @@ script = ExtResource("2_sugp2")
 
 [node name="Title" type="Label" parent="VSplitContainer/Main Info/Enemies"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.75, 0.1875, 0.1875, 1)
 theme_override_font_sizes/font_size = 64
 text = "Enemies"
 horizontal_alignment = 1
@@ -97,7 +107,7 @@ size_flags_vertical = 0
 mouse_filter = 2
 
 [node name="Curses" type="VSplitContainer" parent="VSplitContainer/Main Info"]
-custom_minimum_size = Vector2(640, 0)
+custom_minimum_size = Vector2(637, 0)
 layout_mode = 2
 mouse_filter = 2
 collapsed = true
@@ -106,6 +116,7 @@ script = ExtResource("4_jyhfs")
 [node name="Title" type="Label" parent="VSplitContainer/Main Info/Curses"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.75, 0.1875, 0.75, 1)
 theme_override_font_sizes/font_size = 64
 text = "Curses"
 horizontal_alignment = 1
@@ -141,7 +152,7 @@ size_flags_vertical = 0
 mouse_filter = 2
 
 [node name="Upgrades" type="VSplitContainer" parent="VSplitContainer/Main Info"]
-custom_minimum_size = Vector2(640, 0)
+custom_minimum_size = Vector2(638, 0)
 layout_mode = 2
 mouse_filter = 2
 collapsed = true
@@ -150,6 +161,7 @@ script = ExtResource("5_tbgi4")
 [node name="Title" type="Label" parent="VSplitContainer/Main Info/Upgrades"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.225, 0.7875, 0.9, 1)
 theme_override_font_sizes/font_size = 64
 text = "Upgrades"
 horizontal_alignment = 1
