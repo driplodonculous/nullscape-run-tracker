@@ -38,6 +38,7 @@ var curses_list = [
 	{"label": "Pacifier", "lvl": 1, "enemy": "Baby"},
 	{"label": "Trap Card", "lvl": 12},
 	{"label": "Weaker Jumppads", "lvl": 1},
+	{"label": "Scattered Gifts", "lvl": 1},
 ]
 
 func _ready() -> void:
