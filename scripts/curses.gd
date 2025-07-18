@@ -36,9 +36,11 @@ var curses_list = [
 	{"label": "Muted", "lvl": 8, "enemy": "Telefragger"},
 	{"label": "Telestabber", "lvl": 13, "enemy": "Telefragger"},
 	{"label": "Pacifier", "lvl": 1, "enemy": "Baby"},
-	{"label": "Trap Card", "lvl": 12},
+	{"label": "Trap Card", "lvl": 12, "important": true},
 	{"label": "Weaker Jumppads", "lvl": 1},
 	{"label": "Scattered Gifts", "lvl": 1},
+	{"label": "Problem Child", "lvl": 5, "enemy": "Baby"},
+	{"label": "Crayonify", "lvl": 10},
 ]
 
 func _ready() -> void:
@@ -52,6 +54,8 @@ func _ready() -> void:
 			scene.cant = curse["cant"]
 		if curse.has("req"):
 			scene.req = curse["req"]
+		if curse.has("important"):
+			scene.important = curse["important"]
 		scene.curses = self
 		scene.enemies = enemies
 		add_child(scene)

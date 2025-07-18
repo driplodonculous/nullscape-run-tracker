@@ -25,7 +25,7 @@ var upgrades_list = [
 	{"label": "Matrix Tetrahedron", "lvl": 15},
 	{"label": "Shield", "lvl": 15},
 	{"label": "Real Wings", "lvl": 20},
-	{"label": "Pocket Bell", "lvl": 8, "req": "Double Jump"},
+	{"label": "Pocket Bell", "lvl": 5, "req": "Double Jump"},
 	{"label": "Sport Shoes", "lvl": 15},
 	{"label": "Gift Magnet", "max": 3, "lvl": 15},
 	{"label": "Adrenaline", "lvl": 3, "solo": true},

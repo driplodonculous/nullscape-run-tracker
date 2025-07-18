@@ -17,6 +17,7 @@ var selected = false
 
 
 func update():
+	name_label.text = label
 	if count < 0:
 		count = 0
 	if count == 0:
@@ -46,7 +47,6 @@ func update():
 
 
 func _ready() -> void:
-	name_label.text = label
 	tooltip_text = "Minimum Level: " + str(lvl)
 	if last:
 		tooltip_text += "\nMaximum Level: " + str(last)
@@ -59,6 +59,7 @@ func _input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			count += 1
 			main.update.emit()
+			name_label.text = label + "*"
 		elif event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 			count -= 1
 			main.update.emit()

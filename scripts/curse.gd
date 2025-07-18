@@ -13,6 +13,7 @@ var enemy
 var chosen = false
 var cant
 var req
+var important = false
 
 var selected = false
 
@@ -31,14 +32,18 @@ func update():
 				reparent(curses.chosen_list)
 	else:
 		modulate.a = 1
-		if main.level < lvl or (enemy and not enemies.chosen_enemies.has(enemy)) or (cant and curses.chosen_curses.has(cant)) or (req and not curses.chosen_curses.has(req)):
+		if main.level < lvl or (enemy and not enemies.chosen_enemies.has(enemy) and not enemies.chosen_enemies.has("Shadow " + enemy)) or (cant and curses.chosen_curses.has(cant)) or (req and not curses.chosen_curses.has(req)):
 			margin_container.modulate = Color(Color.INDIAN_RED)
 			if not get_parent() == curses.unavailable_list:
 				reparent(curses.unavailable_list)
 		else:
-			margin_container.modulate = Color(Color.WHITE)
 			if not get_parent() == curses.available_list:
 				reparent(curses.available_list)
+			if main.level == lvl and important:
+				margin_container.modulate = Color(Color.YELLOW)
+				get_parent().move_child(self, 0)
+			else:
+				margin_container.modulate = Color(Color.WHITE)
 
 
 func _ready() -> void:
